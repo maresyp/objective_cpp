@@ -6,6 +6,11 @@ class node {
         node * next;
         node * prev;
 
+        node(int id) {
+            this->id = id;
+            this->next = nullptr;
+            this->prev = nullptr;
+        }
         node(int id, node * prev_node) {
             this -> id = id; 
             this -> next = nullptr;
@@ -34,19 +39,29 @@ class doubly_linked_list {
                 this -> tail = _node;
             }
         }
-        bool push_after_id(int id) {
+        bool push_after_id(int id, node *n_ptr) {
             // Return true on succes else false
             if (this -> head != nullptr){
-                return true;
+                node *_node = this->head;
+                do {
+                    if (_node->id == id) {
+                        // insert new node
+                        n_ptr->next = _node->next;
+                        n_ptr->prev = _node;
+                        _node->next = n_ptr;
+                        if (this->tail == _node) this->tail = n_ptr;
+                        return true;
+                    }
+                    _node = _node->next;
+                } while (_node != nullptr);
             }
             return false;
         }
         bool delete_by_id(int id) {
             if (this -> head != nullptr) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }  
         void display() {
             if (this -> head != nullptr) {
@@ -60,6 +75,16 @@ class doubly_linked_list {
         bool is_empty() {
             if (this -> head == nullptr) return true;
             return false;
+        }
+        int size() {
+            if (this->head == nullptr) return 0;
+            node *_node = this->head;
+            int counter = 0;
+            do {
+                _node = _node->next;
+                counter++;
+            } while (_node != nullptr);
+            return counter;
         }
         void clear(){
             if (this -> head != nullptr) {
@@ -80,14 +105,9 @@ class doubly_linked_list {
 int main() {
     doubly_linked_list dll = doubly_linked_list();
     dll.push_back(12);
-    dll.push_back(13);
-    dll.push_back(14);
-    dll.display();
-    dll.clear();
-    std::cout << "\n";
-    dll.push_back(122);
-    dll.push_back(133);
-    dll.push_back(144);
+    dll.push_after_id(12, new node(5));
+    dll.push_after_id(12, new node(0));
+    dll.push_after_id(12, new node(7));
     dll.display();
     dll.clear();
     return 0;
