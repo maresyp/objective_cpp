@@ -1,0 +1,1 @@
+/usr/local/bin/gcc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/lab_1.dir/silnia.c.o CMakeFiles/lab_1.dir/liczby_pierwsze.c.o CMakeFiles/lab_1.dir/lista.c.o CMakeFiles/lab_1.dir/doubly_linked_list.c.o -o lab_1 
