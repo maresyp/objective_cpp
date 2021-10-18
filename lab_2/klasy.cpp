@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 
-#include "klasy.h"
-
 class Person {
 private:
     std::string imie;
