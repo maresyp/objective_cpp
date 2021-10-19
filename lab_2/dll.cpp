@@ -59,7 +59,14 @@ class doubly_linked_list {
         }
         bool delete_by_id(int id) {
             if (this -> head != nullptr) {
-                return true;
+                node *_node = this->head;
+                do {
+                    if (_node->id == id) {
+                        // delete this node
+                        delete _node;
+                        return true;
+                    }
+                } while (_node != nullptr);
             }
             return false;
         }  
@@ -100,6 +107,12 @@ class doubly_linked_list {
                 this -> tail = nullptr;
             }
         }
+        node *get_head() {
+            return this->head;
+        }
+        node *get_tail() {
+            return this->tail;
+        }
 };
 
 int main() {
@@ -108,6 +121,7 @@ int main() {
     dll.push_after_id(12, new node(5));
     dll.push_after_id(12, new node(0));
     dll.push_after_id(12, new node(7));
+    std::cout << "Head -> " << dll.get_tail()->id << std::endl;
     dll.display();
     dll.clear();
     return 0;
