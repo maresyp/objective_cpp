@@ -113,6 +113,9 @@ class doubly_linked_list {
         node *get_tail() {
             return this->tail;
         }
+        void sort() {
+            // sort nodes by their id
+        }
 };
 
 int main() {
