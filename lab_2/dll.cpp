@@ -47,6 +47,9 @@ class doubly_linked_list {
                     if (_node->id == id) {
                         // insert new node
                         n_ptr->next = _node->next;
+                        if (_node->next != nullptr) {
+                            _node->next->prev = n_ptr;
+                        }
                         n_ptr->prev = _node;
                         _node->next = n_ptr;
                         if (this->tail == _node) this->tail = n_ptr;
@@ -63,6 +66,11 @@ class doubly_linked_list {
                 do {
                     if (_node->id == id) {
                         // delete this node
+                        if (_node->prev != nullptr) {
+                            _node->prev = _node->next;
+                        } else {
+                            this->head = _node->next;
+                        }
                         delete _node;
                         return true;
                     }
@@ -77,7 +85,18 @@ class doubly_linked_list {
                     std::cout << tmp_node -> id << " ";
                     tmp_node = tmp_node -> next;
                 } while (tmp_node != nullptr);
-            } 
+                std::cout << std::endl;
+            }
+        }
+        void display_reverse() {
+            if (this->head != nullptr) {
+                node *tmp_node = this->tail;
+                do {
+                    std::cout << tmp_node->id << " ";
+                    tmp_node = tmp_node->prev;
+                } while (tmp_node != nullptr);
+                std::cout << std::endl;
+            }
         }
         bool is_empty() {
             if (this -> head == nullptr) return true;
@@ -115,6 +134,21 @@ class doubly_linked_list {
         }
         void sort() {
             // sort nodes by their id
+            if (this->head != nullptr) {
+                node *_node;
+                bool changed;
+                do {
+                    _node = this->head;
+                    changed = false;
+                    while (_node->next != nullptr) {
+                        if (_node->id > _node->next->id) {
+                            std::swap(_node->id, _node->next->id);
+                            changed = true;
+                        }
+                        _node = _node->next;
+                    }
+                } while (changed);
+            }
         }
 };
 
@@ -126,6 +160,12 @@ int main() {
     dll.push_after_id(12, new node(7));
     std::cout << "Head -> " << dll.get_tail()->id << std::endl;
     dll.display();
+    dll.sort();
+    std::cout << "After sort" << std::endl;
+    std::cout << "Display -> ";
+    dll.display();
+    std::cout << "Reverse -> ";
+    dll.display_reverse();
     dll.clear();
     return 0;
 }
