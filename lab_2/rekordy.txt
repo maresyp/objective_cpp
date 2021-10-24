@@ -1,0 +1,3 @@
+26579457234;Ania;Konopna;Lipowa 12;
+86457632146;Andrzej;Kwiecinski;Promienna 2;
+98576432541;Adam;Polak;Warszawska 10;
