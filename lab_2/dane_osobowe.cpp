@@ -21,7 +21,16 @@ class Person {
         if (!file) {
             throw "Couldn't open file";
         } else {
-            //
+            std::string line;
+            while (std::getline(file, line)) {
+                std::string token;
+                size_t pos = 0;
+                while ((pos = line.find(';')) != std::string::npos) {
+                    token = line.substr(0, pos);
+                    std::cout << token << std::endl;
+                    line.erase(0, pos + 1);
+                }
+            }
             file.close();
         }
     }
