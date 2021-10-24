@@ -14,6 +14,12 @@ class Person {
     std::string pesel;
 
    public:
+    Person(std::string pesel, std::string imie, std::string nazwisko, std::string adres) {
+        this->pesel = pesel;
+        this->imie = imie;
+        this->nazwisko = nazwisko;
+        this->adres = adres;
+    }
     static void load_from_file(std::string filename, std::vector<Person*>* destination) {
         // file format : pesel;imie;nazwisko;adres
         std::fstream file;
@@ -23,25 +29,33 @@ class Person {
         } else {
             std::string line;
             while (std::getline(file, line)) {
-                std::string token;
+                std::vector<std::string> tokens;
                 size_t pos = 0;
                 while ((pos = line.find(';')) != std::string::npos) {
-                    token = line.substr(0, pos);
-                    std::cout << token << std::endl;
+                    tokens.push_back(line.substr(0, pos));
                     line.erase(0, pos + 1);
+                }
+                if (tokens.size() != 4) throw "File read error";
+                if (validate_pesel(tokens[0])) {
+                    destination->push_back(
+                        new Person(tokens[0], tokens[1], tokens[2], tokens[3]));
+                } else {
+                    throw "Incorrect PESEL";
                 }
             }
             file.close();
         }
     }
-    void validate_pesel() {
-        // 11 cyfr
+    static bool validate_pesel(const std::string pesel) {
+        if (pesel.length() != 11) return false;
+        return true;
+    }
+    void display() {
+        //
     }
 };
 int main() {
     std::vector<Person*> Rekordy;
-    Rekordy.push_back(new Person());
-
     Person::load_from_file("rekordy.txt", &Rekordy);
-    return 0;
+    Rekordy[0] return 0;
 }
