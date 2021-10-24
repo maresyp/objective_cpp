@@ -46,7 +46,6 @@ int main() {
     Complex complex = Complex(12, -3);
     Complex* res = complex.div(Complex(6, 8));
     res->display();
-    Complex test = Complex(0.5, 0.3);
-    test.display();
+    delete res;
     return 0;
 }
