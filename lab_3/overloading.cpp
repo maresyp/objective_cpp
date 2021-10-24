@@ -7,6 +7,12 @@ class Something {
     float c;
 
    public:
+    Something() {
+        std::cout << "Wywolano konstuktor domyslny" << std::endl;
+        this->a = 0;
+        this->b = 0;
+        this->c = 0;
+    }
     Something(int a) {
         this->a = a;
         std::cout << "Wywolano konstuktor przeciazony z parametrami: int" << std::endl;
