@@ -43,6 +43,15 @@ class Something {
     int get_c() {
         return this->c;
     }
+    void set_a(int a) {
+        this->a = a;
+    }
+    void set_b(double b) {
+        this->b = b;
+    }
+    void set_c(double c) {
+        this->c = c;
+    }
 };
 
 int main() {
