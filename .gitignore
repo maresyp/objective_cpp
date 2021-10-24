@@ -1,7 +1,2 @@
 .idea
-.
-
-# Exclude all files without extension
-*
-!/**/
-!*.*
+.vscode
