@@ -4,7 +4,7 @@ class node {
     public: 
         int id; 
         node * next;
-        node * prev;
+        node *prev;
 
         node(int id) {
             this->id = id;
@@ -15,7 +15,7 @@ class node {
             this -> id = id; 
             this -> next = nullptr;
             this -> prev = prev_node;
-        }  
+        }
 };
 
 class doubly_linked_list {
@@ -66,6 +66,7 @@ class doubly_linked_list {
                 do {
                     if (_node->id == id) {
                         // delete this node
+                        // TODO: impl this
                         if (_node->prev != nullptr) {
                             _node->prev = _node->next;
                         } else {
@@ -158,7 +159,7 @@ int main() {
     dll.push_after_id(12, new node(5));
     dll.push_after_id(12, new node(0));
     dll.push_after_id(12, new node(7));
-    std::cout << "Head -> " << dll.get_tail()->id << std::endl;
+    std::cout << "Head -> " << dll.get_head()->id << std::endl;
     dll.display();
     dll.sort();
     std::cout << "After sort" << std::endl;
@@ -166,6 +167,8 @@ int main() {
     dll.display();
     std::cout << "Reverse -> ";
     dll.display_reverse();
+    std::cout << "Head -> " << dll.get_head()->id << std::endl;
+    std::cout << "Tail -> " << dll.get_tail()->id << std::endl;
     dll.clear();
     return 0;
 }
