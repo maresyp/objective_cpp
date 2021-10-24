@@ -9,26 +9,26 @@ class Something {
    public:
     Something() {
         std::cout << "Wywolano konstuktor domyslny" << std::endl;
-        this->a = 0;
-        this->b = 0;
-        this->c = 0;
+        set_a(0);
+        set_b(0);
+        set_c(0);
     }
     Something(int a) {
-        this->a = a;
+        set_a(a);
         std::cout << "Wywolano konstuktor przeciazony z parametrami: int" << std::endl;
         std::cout << "Pierwszy parametr typu int ma wartosc: " << get_a() << std::endl;
     }
     Something(int a, double b) {
-        this->a = a;
-        this->b = b;
+        set_a(a);
+        set_b(b);
         std::cout << "Wywolano konstuktor przeciazony z parametrami: int, double" << std::endl;
         std::cout << "Pierwszy parametr typu int ma wartosc: " << get_a() << std::endl;
         std::cout << "Drugi parametr typu double ma wartosc: " << get_b() << std::endl;
     }
     Something(int a, double b, float c) {
-        this->a = a;
-        this->b = b;
-        this->c = c;
+        set_a(a);
+        set_b(b);
+        set_c(c);
         std::cout << "Wywolano konstuktor przeciazony z parametrami: int, double, float" << std::endl;
         std::cout << "Pierwszy parametr typu int ma wartosc: " << get_a() << std::endl;
         std::cout << "Drugi parametr typu double ma wartosc: " << get_b() << std::endl;
