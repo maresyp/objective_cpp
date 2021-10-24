@@ -48,14 +48,16 @@ class Person {
     }
     static bool validate_pesel(const std::string pesel) {
         if (pesel.length() != 11) return false;
+        // TODO: check if all are numbers
         return true;
     }
     void display() {
-        //
+        std::cout << this->pesel << " | " << this->imie << " | " << this->nazwisko << " | " << this->adres << std::endl;
     }
 };
 int main() {
     std::vector<Person*> Rekordy;
     Person::load_from_file("rekordy.txt", &Rekordy);
-    Rekordy[0] return 0;
+    Rekordy[0]->display();
+    return 0;
 }
