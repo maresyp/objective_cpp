@@ -17,9 +17,13 @@ class Point {
 class Wektor {
    private:
     static unsigned int obj_count;
+    const Point* start;
+    const Point* end;
 
    public:
-    Wektor(const Point& start, const Point& end) {
+    Wektor(const Point* start, const Point* end) {
+        this->start = start;
+        this->end = end;
         obj_count++;
     }
     static unsigned int get_obj_count() {
