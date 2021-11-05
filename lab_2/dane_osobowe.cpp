@@ -21,7 +21,7 @@ class Person {
         this->adres = adres;
     }
     static void load_from_file(std::string filename, std::vector<Person*>* destination) {
-        // file format : pesel;imie;nazwisko;adres
+        // file format : pesel;imie;nazwisko;adres;
         std::fstream file;
         file.open(filename, std::ios::in);
         if (!file) {
@@ -48,8 +48,7 @@ class Person {
     }
     static bool validate_pesel(const std::string pesel) {
         if (pesel.length() != 11) return false;
-        // TODO: check if all are numbers
-        return true;
+        return pesel.find_first_not_of("0123456789") == std::string::npos;
     }
     void display() {
         std::cout << this->pesel << " | " << this->imie << " | " << this->nazwisko << " | " << this->adres << std::endl;
