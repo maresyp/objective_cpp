@@ -66,11 +66,13 @@ class doubly_linked_list {
                 do {
                     if (_node->id == id) {
                         // delete this node
-                        // TODO: impl this
                         if (_node->prev != nullptr) {
                             _node->prev = _node->next;
                         } else {
                             this->head = _node->next;
+                        }
+                        if (this->tail == _node) {
+                            this->tail = _node->prev;
                         }
                         delete _node;
                         return true;
