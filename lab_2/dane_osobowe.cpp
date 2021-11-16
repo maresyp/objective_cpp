@@ -36,7 +36,7 @@ class Person {
                     line.erase(0, pos + 1);
                 }
                 if (tokens.size() != 4) throw "File read error";
-                if (validate_pesel(tokens[0])) {
+                if (validate_pesel(&tokens[0])) {
                     destination->push_back(
                         new Person(tokens[0], tokens[1], tokens[2], tokens[3]));
                 } else {
@@ -46,9 +46,9 @@ class Person {
             file.close();
         }
     }
-    static bool validate_pesel(const std::string pesel) {
-        if (pesel.length() != 11) return false;
-        return pesel.find_first_not_of("0123456789") == std::string::npos;
+    static bool validate_pesel(const std::string *pesel) {
+        if (pesel->length() != 11) return false;
+        return pesel->find_first_not_of("0123456789") == std::string::npos;
     }
     void display() {
         std::cout << this->pesel << " | " << this->imie << " | " << this->nazwisko << " | " << this->adres << std::endl;
