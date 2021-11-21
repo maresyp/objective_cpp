@@ -27,12 +27,18 @@ public:
                   << department << " }";
     }
 
+    virtual void create_new_worker() {
+        std::string tmp_name;
+        // TODO: impl this
+
+    }
+
     const std::string &getName() const {
         return name;
     }
 
-    void setName(const std::string &name) {
-        Worker::name = name;
+    void setName(const std::string &new_name) {
+        Worker::name = new_name;
     }
 
     const std::string &getLastName() const {
@@ -47,8 +53,8 @@ public:
         return nip;
     }
 
-    void setNip(const std::string &nip) {
-        Worker::nip = nip;
+    void setNip(const std::string &new_nip) {
+        Worker::nip = new_nip;
     }
 
     const std::string &getDateOfEmployment() const {
@@ -63,16 +69,16 @@ public:
         return salary;
     }
 
-    void setSalary(double salary) {
-        Worker::salary = salary;
+    void setSalary(double new_salary) {
+        Worker::salary = new_salary;
     }
 
     const std::string &getDepartment() const {
         return department;
     }
 
-    void setDepartment(const std::string &department) {
-        Worker::department = department;
+    void setDepartment(const std::string &new_department) {
+        Worker::department = new_department;
     }
 
     virtual ~Worker() = default;
