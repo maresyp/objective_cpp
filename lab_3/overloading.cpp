@@ -14,6 +14,7 @@ public:
         set_c(0);
     }
 
+    /*
     Something(int a) {
         set_a(a);
         set_b(0);
@@ -21,6 +22,7 @@ public:
         std::cout << "Wywolano konstuktor przeciazony z parametrami: int" << std::endl;
         std::cout << "Pierwszy parametr typu int ma wartosc: " << get_a() << std::endl;
     }
+     */
     Something(int a, double b) {
         set_a(a);
         set_b(b);
@@ -66,9 +68,11 @@ public:
     void set_a(int a) {
         this->a = a;
     }
+
     void set_b(double b) {
         this->b = b;
     }
+
     void set_c(double c) {
         this->c = c;
     }
