@@ -63,5 +63,9 @@ public:
 int main() {
     auto person = Person("Adam", "Nowak", "11.02.2000");
     person.print_info();
+
+    auto fplayer = FootballPlayer("Ola", "Nowak", "20.11.2001", "bramkarz", "PZH", 0);
+    fplayer.add_score();
+    fplayer.print_info();
     return 0;
 }
