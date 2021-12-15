@@ -131,6 +131,7 @@ public:
 
 int main() {
     auto manager = Manager("Adam", "Jezioro", "123456789", "11.02.2008", 14.500, "IT", 3, 5, 14);
+    manager.display();
     auto worker = manager.create_new_worker();
     worker->display();
     return 0;
