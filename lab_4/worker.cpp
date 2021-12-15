@@ -27,12 +27,6 @@ public:
                   << department << " }";
     }
 
-    virtual void create_new_worker() {
-        std::string tmp_name;
-        // TODO: impl this
-
-    }
-
     const std::string &getName() const {
         return name;
     }
@@ -109,6 +103,35 @@ public:
                   << " date_of_employment: " << getDateOfEmployment() << " salary: " << getSalary() << " department: "
                   << getDepartment() << "amout_of_slaves: " << amount_of_slaves << "type_of_menagement: "
                   << type_of_management << "funcional_suplement: " << functional_supplement << " }";
+    }
+
+    Worker *create_new_worker() {
+        std::string name;
+        std::string last_name;
+        std::string nip;
+        std::string date_of_employment;
+        double salary;
+        std::string department;
+        std::cout << "Wprowadz dane nowego pracownika: \n";
+        std::cout << "Podaj imie: ";
+        std::cin >> name;
+        std::cout << "\n";
+        std::cout << "Podaj nazwisko: ";
+        std::cin >> last_name;
+        std::cout << "\n";
+        std::cout << "Podaj nip: ";
+        std::cin >> nip;
+        std::cout << "\n";
+        std::cout << "Podaj date zatrudnienia: ";
+        std::cin >> date_of_employment;
+        std::cout << "\n";
+        std::cout << "Podaj wynagrodzenie: ";
+        std::cin >> salary;
+        std::cout << "\n";
+        std::cout << "Podaj dzial: ";
+        std::cin >> department;
+        std::cout << "\n";
+        return new Worker(name, last_name, nip, date_of_employment, salary, department);
     }
 };
 
