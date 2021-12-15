@@ -115,32 +115,23 @@ public:
         std::cout << "Wprowadz dane nowego pracownika: \n";
         std::cout << "Podaj imie: ";
         std::cin >> name;
-        std::cout << "\n";
         std::cout << "Podaj nazwisko: ";
         std::cin >> last_name;
-        std::cout << "\n";
         std::cout << "Podaj nip: ";
         std::cin >> nip;
-        std::cout << "\n";
         std::cout << "Podaj date zatrudnienia: ";
         std::cin >> date_of_employment;
-        std::cout << "\n";
         std::cout << "Podaj wynagrodzenie: ";
         std::cin >> salary;
-        std::cout << "\n";
         std::cout << "Podaj dzial: ";
         std::cin >> department;
-        std::cout << "\n";
         return new Worker(name, last_name, nip, date_of_employment, salary, department);
     }
 };
 
 int main() {
-    std::string imie = "Adam";
-    std::string nazwisko = "Jezioro";
-    std::string nip = "123456789";
-    std::string data = "12:03:2020";
-    std::string dzial = "bankowosc";
-    auto worker = Worker(imie, nazwisko, nip, data, 20., dzial);
+    auto manager = Manager("Adam", "Jezioro", "123456789", "11.02.2008", 14.500, "IT", 3, 5, 14);
+    auto worker = manager.create_new_worker();
+    worker->display();
     return 0;
 }
