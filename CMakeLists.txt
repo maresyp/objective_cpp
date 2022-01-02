@@ -8,4 +8,4 @@ add_executable(cpp_projects
         lab_5/test_time.cpp
         lab_5/figures.cpp
         lab_6/list.cpp
-        lab_4/second.cpp)
+        lab_4/second.cpp lab_7/convert.cpp lab_7/sqrt.cpp lab_7/exceptions.cpp)
