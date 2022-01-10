@@ -18,7 +18,7 @@ public:
 
     [[nodiscard]] T max() const;
 
-    [[nodiscard]] size_t index() const;
+    [[nodiscard]] size_t index(T elem) const;
 
     void push(T value);
 
@@ -47,7 +47,9 @@ void List<T>::push(T value) {
 
 template<typename T>
 void List<T>::sort() {
-    // todo: impl sort
+    for (int i = 0; i < size - 1; ++i)
+        for (int j = 0; j < size - i - 1; ++j)
+            if (data[i] > data[i + 1]) std::swap(data[i], data[i + 1]);
 }
 
 template<typename T>
@@ -69,8 +71,12 @@ T List<T>::max() const {
 }
 
 template<typename T>
-size_t List<T>::index() const {
-    // todo: impl index
+size_t List<T>::index(T elem) const {
+    for (int i = 0; i < size; ++i)
+        if (data[i] == elem) return i;
+
+    std::cout << "brak ";
+    return 0;
 }
 
 template<typename T>
@@ -88,6 +94,10 @@ int main() {
     test.push(4);
     test.push(5);
     std::cout << "min: " << test.min() << "\n";
+    std::cout << "max: " << test.max() << "\n";
+    std::cout << "index: " << test.index(3) << "\n";
+    std::cout << "index: " << test.index(69) << "\n";
+    test.sort();
     test.display();
     return 0;
 }
