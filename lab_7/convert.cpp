@@ -15,6 +15,7 @@ int convert(std::string str) {
         sign = (str[carrot] == '-') ? -1 : 1;
         carrot++;
     }
+    if (str[carrot] == '0') throw "bad argument";
     while (carrot < str.length()) {
         if (str[carrot] < '0' || str[carrot] > '9')
             throw "bad argument";
@@ -27,9 +28,9 @@ int convert(std::string str) {
 }
 
 int main() {
-//    std::string txt;
-//    std::cout << "Wprowadz liczbe ";
-//    std::cin >> txt;
-    std::cout << convert("1234512345678901234567890123456789");
+    std::string txt;
+    std::cout << "Wprowadz liczbe ";
+    std::cin >> txt;
+    std::cout << convert(txt);
     return 0;
 }
