@@ -39,3 +39,16 @@ std::ostream &operator<<(std::ostream &output, const Resistor &Res) {
     output << "R: " << Res.resistance;
     return output;
 }
+
+int main() {
+    Resistor res1 = Resistor(5);
+    Resistor res2 = Resistor(15);
+
+    std::cout << res1 << "\n";
+    std::cout << res2 << "\n";
+
+    std::cout << res1 + res2 << "\n";
+    std::cout << res1 * res2;
+
+    return 0;
+}
