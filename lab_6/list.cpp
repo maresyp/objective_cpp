@@ -2,6 +2,7 @@
 // Created by Mateusz Pysera on 07/12/2021.
 //
 #include <iostream>
+#include <cstring>
 
 template<typename T>
 class List {
@@ -101,4 +102,5 @@ int main() {
     test.display();
     return 0;
 }
+
 
